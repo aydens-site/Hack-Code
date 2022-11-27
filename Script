@@ -38,7 +38,7 @@ local function RRPV_fake_script() -- Button.Script
 	
 	
 			_G.wpmlimit = 1000
-			_G.keydelay = 0.010
+			_G.keydelay = 0.001
 	
 			local vim = game:GetService("VirtualInputManager") 
 	
