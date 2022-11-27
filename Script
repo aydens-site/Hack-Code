@@ -1,27 +1,31 @@
-local ScreenGui = Instance.new("ScreenGui")
-local TextButton = Instance.new("TextButton")
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Button = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 
+--Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Button.Name = "Button"
+Button.Parent = game.StarterGui.ScreenGui
+Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Button.Position = UDim2.new(0, 0, 0.473118275, 0)
+Button.Size = UDim2.new(0, 200, 0, 50)
+Button.Font = Enum.Font.SourceSans
+Button.Text = "AUTOTYPE"
+Button.TextColor3 = Color3.fromRGB(0, 0, 0)
+Button.TextScaled = true
+Button.TextSize = 14.000
+Button.TextWrapped = true
 
-TextButton.Parent = ScreenGui
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.Position = UDim2.new(0, 0, 0.473118275, 0)
-TextButton.Size = UDim2.new(0, 200, 0, 50)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "AUTOTYPE"
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextScaled = true
-TextButton.TextSize = 14.000
-TextButton.TextWrapped = true
+UICorner.Parent = Button
 
-UICorner.Parent = TextButton
+-- Scripts:
 
-
-local function ZOVVPD_fake_script() -- TextButton.Script 
-	local script = Instance.new('Script', TextButton)
+local function UOKV_fake_script() -- Button.Script 
+	local script = Instance.new('Script', Button)
 
 	local function AlxScript() -- Button.LocalScript 
 		local script = Instance.new('LocalScript', Button)
@@ -70,4 +74,4 @@ local function ZOVVPD_fake_script() -- TextButton.Script
 	end
 	coroutine.wrap(AlxScript)()
 end
-coroutine.wrap(ZOVVPD_fake_script)()
+coroutine.wrap(UOKV_fake_script)()
