@@ -37,7 +37,7 @@ local function YEDNJOV_fake_script() -- TextButton.Script
 	
 	
 			_G.wpmlimit = 250
-			_G.keydelay = 0.001
+			_G.keydelay = 0.005
 	
 			local vim = game:GetService("VirtualInputManager") 
 	
