@@ -1,23 +1,17 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local typeraceui = Instance.new("ScreenGui")
+local ScreenGui = Instance.new("ScreenGui")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 
---Properties:
 
-typeraceui.Name = "type-race-ui"
-typeraceui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-TextButton.Parent = typeraceui
+TextButton.Parent = ScreenGui
 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.Position = UDim2.new(0.417283952, 0, 0.806451619, 0)
+TextButton.Position = UDim2.new(0, 0, 0.473118275, 0)
 TextButton.Size = UDim2.new(0, 200, 0, 50)
 TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "Click to AUTOTYPE :)"
+TextButton.Text = "AUTOTYPE"
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
@@ -25,53 +19,55 @@ TextButton.TextWrapped = true
 
 UICorner.Parent = TextButton
 
--- Scripts:
 
-local function AlxScript() -- Button.LocalScript 
-	local script = Instance.new('LocalScript', Button)
+local function ZOVVPD_fake_script() -- TextButton.Script 
+	local script = Instance.new('Script', TextButton)
 
-	Button.MouseButton1Click:Connect(function()
+	local function AlxScript() -- Button.LocalScript 
+		local script = Instance.new('LocalScript', Button)
+	
+		Button.MouseButton1Click:Connect(function()
 	
 	
-		_G.wpmlimit = 250
-		_G.keydelay = 0.010
+			_G.wpmlimit = 250
+			_G.keydelay = 0.005
 	
-		local vim = game:GetService("VirtualInputManager") 
-		
+			local vim = game:GetService("VirtualInputManager") 
 	
-		
-		local function findLetterTable()
-			for i,obj in pairs( getgc() ) do
-				if type(obj) == "function" and getfenv(obj).script == game:GetService("Players").LocalPlayer.PlayerGui.LocalMain then
-					local consts=debug.getconstants(obj)
-					if consts[8]=="idXTO3JVlV0CBTmiSbaQ" then
-						--local tab=debug.getupvalue(obj,4)
-						return debug.getupvalue(obj,4) 
-					end end end end 
-		
 	
-		local descendants = findLetterTable()
-		for index, descendant in pairs(descendants) do
-			if string.upper(descendant) ~= " " then 
-				local key = Enum.KeyCode[string.upper(descendant)]
-				vim:SendKeyEvent(1,key,0,nil)
-				vim:SendKeyEvent(0,key,0,nil) 
-			else
-				vim:SendKeyEvent(1,32,0,nil) 
-				vim:SendKeyEvent(0,32,0,nil) 
-			end
-			while tonumber(game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.RaceScreen.LiveStats.WPM.Stat.Text) > _G.wpmlimit do
-				task.wait() 
-			end
-			wait(_G.keydelay)
-			if game.Workspace:FindFirstChild("Doll") then 
-				while game:GetService("SoundService").DollSaying.TimePosition > 5 or game:GetService("SoundService").DollSaying.TimePosition <= 0 do
+	
+			local function findLetterTable()
+				for i,obj in pairs( getgc() ) do
+					if type(obj) == "function" and getfenv(obj).script == game:GetService("Players").LocalPlayer.PlayerGui.LocalMain then
+						local consts=debug.getconstants(obj)
+						if consts[8]=="idXTO3JVlV0CBTmiSbaQ" then
+							--local tab=debug.getupvalue(obj,4)
+							return debug.getupvalue(obj,4) 
+						end end end end 
+	
+	
+			local descendants = findLetterTable()
+			for index, descendant in pairs(descendants) do
+				if string.upper(descendant) ~= " " then 
+					local key = Enum.KeyCode[string.upper(descendant)]
+					vim:SendKeyEvent(1,key,0,nil)
+					vim:SendKeyEvent(0,key,0,nil) 
+				else
+					vim:SendKeyEvent(1,32,0,nil) 
+					vim:SendKeyEvent(0,32,0,nil) 
+				end
+				while tonumber(game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.RaceScreen.LiveStats.WPM.Stat.Text) > _G.wpmlimit do
 					task.wait() 
 				end
+				wait(_G.keydelay)
+				if game.Workspace:FindFirstChild("Doll") then 
+					while game:GetService("SoundService").DollSaying.TimePosition > 5 or game:GetService("SoundService").DollSaying.TimePosition <= 0 do
+						task.wait() 
+					end
+				end
 			end
-		end
 		end)
+	end
+	coroutine.wrap(AlxScript)()
 end
-coroutine.wrap(AlxScript)()
-end
-coroutine.wrap(YEDNJOV_fake_script)()
+coroutine.wrap(ZOVVPD_fake_script)()
