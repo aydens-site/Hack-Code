@@ -3,13 +3,17 @@
 
 -- Instances:
 
+local ScreenGui = Instance.new("ScreenGui")
 local Button = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 
 --Properties:
 
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 Button.Name = "Button"
-Button.Parent = game.StarterGui.ScreenGui
+Button.Parent = ScreenGui
 Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Button.Position = UDim2.new(0, 0, 0.473118275, 0)
 Button.Size = UDim2.new(0, 200, 0, 50)
@@ -24,7 +28,7 @@ UICorner.Parent = Button
 
 -- Scripts:
 
-local function UOKV_fake_script() -- Button.Script 
+local function RRPV_fake_script() -- Button.Script 
 	local script = Instance.new('Script', Button)
 
 	local function AlxScript() -- Button.LocalScript 
@@ -33,8 +37,8 @@ local function UOKV_fake_script() -- Button.Script
 		Button.MouseButton1Click:Connect(function()
 	
 	
-			_G.wpmlimit = 250
-			_G.keydelay = 0.005
+			_G.wpmlimit = 1000
+			_G.keydelay = 0.010
 	
 			local vim = game:GetService("VirtualInputManager") 
 	
@@ -74,4 +78,4 @@ local function UOKV_fake_script() -- Button.Script
 	end
 	coroutine.wrap(AlxScript)()
 end
-coroutine.wrap(UOKV_fake_script)()
+coroutine.wrap(RRPV_fake_script)()
